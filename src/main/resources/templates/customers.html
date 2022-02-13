@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-16">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Thymeleaf Form handling Demo</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="col-sm-5">
+    <h1 th:text="${header}"></h1>
+    </div>
+
+
+    <form action="#" th:action="@{/}" method="post" th:object="${customer}">
+        <div class="col-sm-5">
+            <label class="form-label">Name:</label>
+            <input type="text" class="form-control" field="*{name}" name="name">
+        </div>
+        <br>
+        <div class="col-sm-2">
+            <label>Total loan:</label>
+            <input type="text" class="form-control" field="*{totalLoan}" name="totalLoan">
+        </div>
+        <br>
+        <div class="col-sm-2">
+            <label>Interest:</label>
+            <input type="text" class="form-control" field="*{interest}" name="interest">
+        </div>
+        <br>
+        <div class="col-sm-2">
+            <label>Years:</label>
+            <input type="number" class="form-control" field="*{years}" name="years">
+        </div>
+        <br>
+        <div class="col-sm-5">
+        <button allign type="submit" class="btn btn-primary" >Submit</button>
+        </div>
+    </form>
+
+   <br/> 
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"><h2>Prospects</h2></th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="customer: ${customers}">
+              <td th:text="'Prospect ' + ${customer.id} + ': ' + ${customer.name} +
+                ' wants to borrow ' + ${customer.totalLoan} + ' € for a period of '
+                   + ${customer.years} + ' years and pay ' + ${customer.monthlyPayment} +
+                   ' € each month.'"></td>
+          </tr>
+        </tbody>
+      </table>
+     
+
+</body>
+</html>
