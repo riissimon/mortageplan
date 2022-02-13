@@ -1,6 +1,6 @@
 # Code test - Mortgage plan
 
-This is an application that reads a file with prospect information and calculates how much the customers will pay every per month. The information is then
+This is an application that reads a file with prospect information and calculates how much the customers will pay every month. The information is then
 displayed in a web interface. In the interface it is also possible to add new prospects.
 
 ## Follow the steps below to run the application:
